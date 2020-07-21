@@ -16,11 +16,30 @@
             </div>
 
             <div class="input-btn">
-                <input type="password" class="input-text icon fingerprint-bg"
-                       placeholder="Enter Password (Leave blank for OTP Login)" name="password">
-                <a href="/forgot/password">
-                    <button type="button" class="grey">Forgot?</button>
-                </a>
+                <input type="password" class="form-control input-text icon fingerprint-bg"
+                       placeholder="Enter Password (Leave blank for OTP Login)" name="password" id="password-input">
+                <div>
+                    <button type="button" class="btn grey" 
+                            style="padding-right: 50px;" onclick="togglePasswordShow()">
+                            <i class="fa fa-eye-slash" id="visibility-icon"></i></button>
+                    <script>
+                        var passwordShow = false;
+                        function togglePasswordShow() {
+                            passwordShow = !passwordShow
+                            if(passwordShow) {
+                                $("#password-input").prop('type','text')
+                                $('#visibility-icon').removeClass('fa-eye-slash')
+                                $('#visibility-icon').addClass('fa-eye')
+                            }
+                            else {
+                                $("#password-input").prop('type','password')
+                                $('#visibility-icon').removeClass('fa-eye')
+                                $('#visibility-icon').addClass('fa-eye-slash')
+                            }
+                        }
+                    </script>
+                    <button type="button" class="btn grey">Forgot?</button>
+                </div>
             </div>
 
             <input type="checkbox" id="remember" class="input-checkbox">
